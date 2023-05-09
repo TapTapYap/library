@@ -6,18 +6,23 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.getInfo = function () {
-    return `${this.title} is written by ${this.author}, is ${this.pages} pages and has been ${this.read}.`;
+    return `Title: ${this.title}\nAuthor: ${this.author}\nPages: ${this.pages}\nStatus: ${this.read}.`;
   };
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  let book1 = new Book(title, author, pages, read);
-  return myLibrary.push(book1);
+  let book = new Book(title, author, pages, read);
+  return myLibrary.push(book);
 }
 
 function showLibrary() {
-  return console.log(myLibrary);
+  const mainContent = document.querySelector(".main-content");
+
+  for (let i = 0; i < myLibrary.length; i++) {
+    const card = document.createElement("div");
+    card.textContent = myLibrary[i].getInfo();
+    mainContent.appendChild(card);
+  }
 }
 
-console.log(addBookToLibrary("Harry Potter", "JK Rowling", 700, "read"));
-console.log(showLibrary());
+showLibrary();
