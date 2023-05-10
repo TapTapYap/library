@@ -22,7 +22,18 @@
   border: red solid 1px;
 }
 
+form > input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
 .main-content {
   display: grid;
   border: green solid 1px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.main-content > div {
+  border: 1px black solid;
+  grid
 }
