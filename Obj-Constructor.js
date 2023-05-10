@@ -17,6 +17,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 function showLibrary() {
   const mainContent = document.querySelector(".main-content");
+  mainContent.textContent = "";
 
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
