@@ -10,6 +10,20 @@ function Book(title, author, pages, read) {
   };
 }
 
+const myForm = document.getElementById("myForm");
+
+myForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const title = getElementById("title").value;
+  const author = getElementById("author").value;
+  const pages = getElementById("pages").value;
+  const status = getElementById("status").value;
+
+  addBookToLibrary(title, author, pages, status);
+  showLibrary();
+});
+
 function addBookToLibrary(title, author, pages, read) {
   let book = new Book(title, author, pages, read);
   return myLibrary.push(book);
@@ -25,5 +39,3 @@ function showLibrary() {
     mainContent.appendChild(card);
   }
 }
-
-showLibrary();
