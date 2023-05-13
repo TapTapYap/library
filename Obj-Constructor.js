@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     this.pages = pages;
     this.read = read;
     this.getInfo = function () {
-      return `Title: ${this.title}<br>Author: ${this.author}<br>Pages: ${this.pages}<br>Status: ${this.read}.`;
+      return `Title: ${this.title}<br>Author: ${this.author}<br>Pages: ${
+        this.pages
+      }<br>Status: ${this.read ? "Read" : "Not Read"}.`;
     };
   }
 
@@ -35,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const status = document.getElementById("status").value;
+    const read = document.getElementById("read").checked;
 
-    addBookToLibrary(title, author, pages, status);
+    addBookToLibrary(title, author, pages, read);
     showLibrary();
-    myForm.inputMode.value = "";
+    myForm.innerHTML.value = "";
   });
 });
