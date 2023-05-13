@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     this.pages = pages;
     this.read = read;
     this.getInfo = function () {
-      return `"Title: ${this.title}\nAuthor: ${this.author}\nPages: ${this.pages}\nStatus: ${this.read}."`;
+      return `Title: ${this.title}<br>Author: ${this.author}<br>Pages: ${this.pages}<br>Status: ${this.read}.`;
     };
   }
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < myLibrary.length; i++) {
       const card = document.createElement("div");
-      card.textContent = myLibrary[i].getInfo();
+      card.innerHTML = myLibrary[i].getInfo();
       mainContent.appendChild(card);
     }
   }
