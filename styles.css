@@ -37,4 +37,5 @@ form > input {
   border: 1px black solid;
   display: grid;
   text-align: center;
+  align-items: center;
 }
