@@ -39,3 +39,8 @@ form > input {
   text-align: center;
   align-items: center;
 }
+
+.main-content > div > button {
+  padding: 5px;
+  justify-self: center;
+}

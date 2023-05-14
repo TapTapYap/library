@@ -26,8 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < myLibrary.length; i++) {
       const card = document.createElement("div");
+      const readStatusBtn = document.createElement("button");
+      readStatusBtn.textContent = "Read Status";
+      const removeBookBtn = document.createElement("button");
+      removeBookBtn.textContent = "Remove";
       card.innerHTML = myLibrary[i].getInfo();
       mainContent.appendChild(card);
+      card.appendChild(readStatusBtn);
+      card.appendChild(removeBookBtn);
     }
   }
 
