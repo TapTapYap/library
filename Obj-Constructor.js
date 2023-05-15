@@ -28,12 +28,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       const readStatusBtn = document.createElement("button");
       readStatusBtn.textContent = "Read Status";
+      readStatusBtn.classList.add(".readStatusBtn");
+      readStatusBtn.setAttribute("data-index", i);
       const removeBookBtn = document.createElement("button");
       removeBookBtn.textContent = "Remove";
+      removeBookBtn.classList.add(".removeBookBtn");
+      removeBookBtn.setAttribute("data-index", i);
       card.innerHTML = myLibrary[i].getInfo();
       mainContent.appendChild(card);
       card.appendChild(readStatusBtn);
       card.appendChild(removeBookBtn);
+
+      removeBookBtn.addEventListener("click", () => {
+        const index = removeBookBtn.getAttribute("data-index");
+        myLibrary.splice(index, 1);
+        showLibrary();
+      });
+
+      readStatusBtn.addEventListener("click", () => {
+        const index = readStatusBtn.getAttribute("data-index");
+        myLibrary[index].read = !myLibrary[index].read;
+        showLibrary();
+      });
     }
   }
 
@@ -47,6 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addBookToLibrary(title, author, pages, read);
     showLibrary();
-    myForm.innerHTML.value = "";
+    myForm.reset();
   });
 });
