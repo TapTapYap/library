@@ -22,9 +22,22 @@
   border: red solid 1px;
 }
 
+form {
+  display: grid;
+}
+
 form > input {
   margin-bottom: 10px;
   padding: 5px;
+}
+
+form > button {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+form > label > input {
+  margin-top: 10px;
 }
 
 .main-content {

@@ -26,14 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < myLibrary.length; i++) {
       const card = document.createElement("div");
+
       const readStatusBtn = document.createElement("button");
       readStatusBtn.textContent = "Read Status";
-      readStatusBtn.classList.add(".readStatusBtn");
+      readStatusBtn.classList.add("readStatusBtn");
       readStatusBtn.setAttribute("data-index", i);
+
       const removeBookBtn = document.createElement("button");
       removeBookBtn.textContent = "Remove";
-      removeBookBtn.classList.add(".removeBookBtn");
+      removeBookBtn.classList.add("removeBookBtn");
       removeBookBtn.setAttribute("data-index", i);
+
       card.innerHTML = myLibrary[i].getInfo();
       mainContent.appendChild(card);
       card.appendChild(readStatusBtn);
