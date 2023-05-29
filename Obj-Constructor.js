@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     this.getInfo = function () {
       return `Title: ${this.title}<br>Author: ${this.author}<br>Pages: ${
         this.pages
-      }<br>Status: ${this.read ? "Read" : "Not Read"}.`;
+      }
+      <br>Status: ${this.read ? "Read" : "Not Read"}.`;
     };
   }
 
