@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const myLibrary = [];
+
   class Book {
     constructor(title, author, pages, read) {
       this.title = title;
@@ -13,18 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
 
-    myLibrary = [];
-
     addBookToLibrary(title, author, pages, read) {
-      let book = new Book(title, author, pages, read);
-      return this.myLibrary.push(book);
+      const book = new Book(title, author, pages, read);
+      return myLibrary.push(book);
     }
 
     showLibrary() {
       const mainContent = document.querySelector(".main-content");
       mainContent.textContent = "";
 
-      for (let i = 0; i < this.myLibrary.length; i++) {
+      for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement("div");
 
         const readStatusBtn = document.createElement("button");
@@ -37,30 +37,25 @@ document.addEventListener("DOMContentLoaded", () => {
         removeBookBtn.classList.add("removeBookBtn");
         removeBookBtn.setAttribute("data-index", i);
 
-        card.innerHTML = this.myLibrary[i].getInfo();
+        card.innerHTML = myLibrary[i].getInfo();
         mainContent.appendChild(card);
         card.appendChild(readStatusBtn);
         card.appendChild(removeBookBtn);
 
         removeBookBtn.addEventListener("click", () => {
           const index = removeBookBtn.getAttribute("data-index");
-          this.myLibrary.splice(index, 1);
+          myLibrary.splice(index, 1);
           this.showLibrary();
         });
 
         readStatusBtn.addEventListener("click", () => {
           const index = readStatusBtn.getAttribute("data-index");
-          this.myLibrary[index].read = !this.myLibrary[index].read;
+          myLibrary[index].read = !myLibrary[index].read;
           this.showLibrary();
         });
       }
     }
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    instance.showLibrary();
-    instance.myForm();
-  });
 
   const myForm = document.getElementById("myForm");
 
@@ -76,5 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     instance.addBookToLibrary(title, author, pages, read);
     instance.showLibrary();
     myForm.reset();
+
+    console.log(myLibrary);
   });
 });
